@@ -66,7 +66,7 @@ export const joinQueue = async (matchId: string): Promise<{ success: boolean; er
 };
 
 // Get the number of people ahead in the queue
-export const getQueuePosition = async (matchId: string, userId: string): Promise<number | null> => {
+export const getQueuePosition = async (userId: string, matchId: string): Promise<number | null> => {
   try {
     // Get this user's joined_at timestamp
     const { data: userData, error: userError } = await supabase
