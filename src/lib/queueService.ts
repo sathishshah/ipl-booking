@@ -21,7 +21,7 @@ export const getUserId = (): string => {
 };
 
 // Join the queue for a match
-export const joinQueue = async (matchId: string): Promise<{ success: boolean; error?: any; queueId?: number }> => {
+export const joinQueue = async (matchId: string): Promise<{ success: boolean; error?: unknown; queueId?: number }> => {
   try {
     const userId = getUserId();
     

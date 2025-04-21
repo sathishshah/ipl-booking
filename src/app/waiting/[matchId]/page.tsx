@@ -11,7 +11,6 @@ export default function WaitingPage() {
   const matchId = params.matchId as string;
   
   const [matchDetails, setMatchDetails] = useState<{ name: string; venue: string; date: string } | null>(null);
-  const [queuePosition, setQueuePosition] = useState<number | null>(null);
   const [peopleAhead, setPeopleAhead] = useState<number | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -81,8 +80,6 @@ export default function WaitingPage() {
           router.push(`/booking/${matchId}`);
           return;
         }
-        
-        setQueuePosition(queueData.id);
         
         // Get initial queue position
         const initialPeopleAhead = await getQueuePosition(matchId, userId);
@@ -237,7 +234,7 @@ export default function WaitingPage() {
         </div>
         
         <div className="text-center mb-6 border-t border-b border-gray-200 py-4">
-          <p className="text-gray-700 font-medium mb-2">You'll be auto-redirected to the booking page once it's your turn</p>
+          <p className="text-gray-700 font-medium mb-2">You&apos;ll be auto-redirected to the booking page once it&apos;s your turn</p>
           <p className="text-gray-600">Complete your purchase within 10 minutes once redirected</p>
         </div>
         
