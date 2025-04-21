@@ -68,7 +68,13 @@ const MatchList = () => {
         // Redirect to waiting page with the match ID
         router.push(`/waiting/${matchId}`);
       } else {
-        throw new Error(result.error || 'Failed to join queue');
+        // Convert unknown error to string for Error constructor
+        const message = typeof result.error === 'string'
+          ? result.error
+          : result.error instanceof Error
+            ? result.error.message
+            : 'Failed to join queue';
+        throw new Error(message);
       }
     } catch (error) {
       console.error('Error joining queue:', error);
